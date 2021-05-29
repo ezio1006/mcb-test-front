@@ -1,0 +1,31 @@
+{
+  "Users": [
+    {
+      "id": "1",
+      "firstname": "john",
+      "lastname": "doe",
+      "email": "john@gmail.com",
+      "password": "pass"
+    },
+    {
+      "id": "2",
+      "firstname": "john1",
+      "lastname": "doe1",
+      "email": "john1@gmail.com",
+      "password": "pass1"
+    },
+    {
+      "id": "3",
+      "firstname": "john3",
+      "lastname": "doe3",
+      "email": "john3@gmail.com",
+      "password": "pass3"
+    }
+  ],
+  "login": [
+    {
+      "email": "asd",
+      "password": "123"
+    }
+  ]
+}
