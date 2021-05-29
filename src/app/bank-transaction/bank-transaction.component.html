@@ -1,0 +1,30 @@
+<div class="newtransaction-container">
+
+    <h1>New Transaction</h1>
+
+    <form [formGroup]="newTransactionForm" (ngSubmit)="addNewTransaction()">
+        <fieldset class="mat-elevation-z8">
+            <!-- <legend>New Transaction</legend> -->
+            <br>
+            <mat-radio-group aria-label="Customer" formControlName="type">
+                <mat-radio-button value="new">New</mat-radio-button>
+                <mat-radio-button value="existing"> Existing</mat-radio-button>
+            </mat-radio-group>
+            <br>
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="reference" placeholder="Reference">
+            </mat-form-field>
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="reference" placeholder="reference">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="reference" placeholder="reference">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput formControlName="reference" placeholder="reference">
+            </mat-form-field>
+
+        </fieldset>
+    </form>
+
+</div>
