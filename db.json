@@ -1,5 +1,5 @@
 {
-  "Users": [
+  "users": [
     {
       "id": "1",
       "firstname": "john",
@@ -26,6 +26,224 @@
     {
       "email": "asd",
       "password": "123"
+    }
+  ],
+  "currency": [
+    {
+      "id": "1",
+      "label": "AED"
+    },
+    {
+      "id": "2",
+      "label": "EUR"
+    },
+    {
+      "id": "3",
+      "label": "CHF"
+    },
+    {
+      "id": "4",
+      "label": "MUR"
+    },
+    {
+      "id": "5",
+      "label": "USD"
+    }
+  ],
+  "region": [
+    {
+      "id": "1",
+      "label": "Port Louis"
+    },
+    {
+      "id": "2",
+      "label": "Curepipe"
+    },
+    {
+      "id": "3",
+      "label": "Vacoas"
+    },
+    {
+      "id": "4",
+      "label": "Port Mathurin"
+    }
+  ],
+  "transaction": [
+    {
+      "type": "new",
+      "reference": "asdf",
+      "idCurrency": "5",
+      "customerNumber": "12",
+      "customerName": "asf",
+      "customerAddress": "asdf",
+      "customerPhoneNumber": "12",
+      "transferAmount": "12",
+      "beneficiaryBank": "sdaf",
+      "beneficiaryAccountNumber": "asdf",
+      "paymentDetails": "asdf",
+      "cardDetails": "asdf",
+      "idRegion": "3",
+      "id": 1
+    },
+    {
+      "type": "new",
+      "reference": "asdfasfd",
+      "idCurrency": "2",
+      "customerNumber": "1222",
+      "customerName": "asf3",
+      "customerAddress": "asdfasdf",
+      "customerPhoneNumber": "12323",
+      "transferAmount": "1212",
+      "beneficiaryBank": "sdafasdf",
+      "beneficiaryAccountNumber": "asdfasdf",
+      "paymentDetails": "asdfasdf",
+      "cardDetails": "asdfasdf",
+      "idRegion": "1",
+      "id": 2
+    },
+    {
+      "type": "new",
+      "reference": "asdf",
+      "idCurrency": "1",
+      "customerNumber": "126745",
+      "customerName": "dgh",
+      "customerAddress": "fdgh",
+      "customerPhoneNumber": "54675347",
+      "transferAmount": "5367",
+      "beneficiaryBank": "dgrfh",
+      "beneficiaryAccountNumber": "dfgh",
+      "paymentDetails": "dgfh",
+      "cardDetails": "dgfh",
+      "idRegion": "3",
+      "id": 3
+    },
+    {
+      "type": "new",
+      "reference": "fghj",
+      "idCurrency": "5",
+      "customerNumber": "543",
+      "customerName": "asdf",
+      "customerAddress": "fgh",
+      "customerPhoneNumber": "56",
+      "transferAmount": "56",
+      "beneficiaryBank": "fdgh",
+      "beneficiaryAccountNumber": "gfhj",
+      "paymentDetails": "gfhj",
+      "cardDetails": "fghj",
+      "idRegion": "3",
+      "id": 4
+    },
+    {
+      "type": "new",
+      "reference": "fghj",
+      "idCurrency": "5",
+      "customerNumber": "543",
+      "customerName": "asdf",
+      "customerAddress": "fgh",
+      "customerPhoneNumber": "56",
+      "transferAmount": "56",
+      "beneficiaryBank": "fdgh",
+      "beneficiaryAccountNumber": "gfhj",
+      "paymentDetails": "gfhj",
+      "cardDetails": "fghj",
+      "idRegion": "3",
+      "id": 4
+    },
+    {
+      "type": "new",
+      "reference": "fghj",
+      "idCurrency": "5",
+      "customerNumber": "543",
+      "customerName": "asdf",
+      "customerAddress": "fgh",
+      "customerPhoneNumber": "56",
+      "transferAmount": "56",
+      "beneficiaryBank": "fdgh",
+      "beneficiaryAccountNumber": "gfhj",
+      "paymentDetails": "gfhj",
+      "cardDetails": "fghj",
+      "idRegion": "3",
+      "id": 4
+    },
+    {
+      "type": "new",
+      "reference": "fghj",
+      "idCurrency": "5",
+      "customerNumber": "543",
+      "customerName": "asdf",
+      "customerAddress": "fgh",
+      "customerPhoneNumber": "56",
+      "transferAmount": "56",
+      "beneficiaryBank": "fdgh",
+      "beneficiaryAccountNumber": "gfhj",
+      "paymentDetails": "gfhj",
+      "cardDetails": "fghj",
+      "idRegion": "3",
+      "id": 4
+    },
+    {
+      "type": "new",
+      "reference": "fghj",
+      "idCurrency": "5",
+      "customerNumber": "543",
+      "customerName": "asdf",
+      "customerAddress": "fgh",
+      "customerPhoneNumber": "56",
+      "transferAmount": "56",
+      "beneficiaryBank": "fdgh",
+      "beneficiaryAccountNumber": "gfhj",
+      "paymentDetails": "gfhj",
+      "cardDetails": "fghj",
+      "idRegion": "3",
+      "id": 4
+    },
+    {
+      "type": "new",
+      "reference": "fghj",
+      "idCurrency": "5",
+      "customerNumber": "543",
+      "customerName": "asdf",
+      "customerAddress": "fgh",
+      "customerPhoneNumber": "56",
+      "transferAmount": "56",
+      "beneficiaryBank": "fdgh",
+      "beneficiaryAccountNumber": "gfhj",
+      "paymentDetails": "gfhj",
+      "cardDetails": "fghj",
+      "idRegion": "3",
+      "id": 4
+    },
+    {
+      "type": "new",
+      "reference": "fghj",
+      "idCurrency": "5",
+      "customerNumber": "543",
+      "customerName": "asdf",
+      "customerAddress": "fgh",
+      "customerPhoneNumber": "56",
+      "transferAmount": "56",
+      "beneficiaryBank": "fdgh",
+      "beneficiaryAccountNumber": "gfhj",
+      "paymentDetails": "gfhj",
+      "cardDetails": "fghj",
+      "idRegion": "3",
+      "id": 4
+    },
+    {
+      "type": "new",
+      "reference": "fghj",
+      "idCurrency": "5",
+      "customerNumber": "543",
+      "customerName": "asdf",
+      "customerAddress": "fgh",
+      "customerPhoneNumber": "56",
+      "transferAmount": "56",
+      "beneficiaryBank": "fdgh",
+      "beneficiaryAccountNumber": "gfhj",
+      "paymentDetails": "gfhj",
+      "cardDetails": "fghj",
+      "idRegion": "3",
+      "id": 4
     }
   ]
 }

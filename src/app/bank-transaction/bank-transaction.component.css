@@ -3,7 +3,8 @@
 }
 
 .mat-form-field.cssFifty{
-    width: 50%;
+    width: 51%;
+    padding: 4px;
 }
 
 /* .mat-radio-group.cssHundred{

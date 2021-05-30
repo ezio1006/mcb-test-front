@@ -2,28 +2,104 @@
 
     <h1>New Transaction</h1>
 
-    <form [formGroup]="newTransactionForm" (ngSubmit)="addNewTransaction()">
+    <form [formGroup]="transactionForm" (ngSubmit)="addNewTransaction()">
         <fieldset class="mat-elevation-z8">
             <!-- <legend>New Transaction</legend> -->
             <br>
-            <mat-radio-group aria-label="Customer" formControlName="type">
+            <mat-radio-group aria-label="Customer" formControlName="type" (change)="changeType($event)">
                 <mat-radio-button value="new">New</mat-radio-button>
                 <mat-radio-button value="existing"> Existing</mat-radio-button>
             </mat-radio-group>
             <br>
             <mat-form-field class="cssFifty">
-                <input matInput formControlName="reference" placeholder="Reference">
+                <input matInput formControlName="reference" required placeholder="Reference">
+                <mat-error *ngIf="transactionForm.controls['reference'].hasError('required')"> Field Required
+                </mat-error>
+                <mat-error *ngIf="transactionForm.controls['reference'].hasError('pattern')"> Must Start With CUS
+                    Followed by YYYYMMDD and 4 number</mat-error>
+                <mat-error *ngIf="transactionForm.controls['reference'].hasError('maxLength')"> Max length of Reference
+                    15 </mat-error>
             </mat-form-field>
             <mat-form-field class="cssFifty">
-                <input matInput formControlName="reference" placeholder="reference">
+                <input matInput formControlName="customerNumber" required placeholder="Number" (blur)="getCustomerDetails($event)" > 
+                <mat-error *ngIf="transactionForm.controls['customerNumber'].hasError('required')"> Field Required
+                </mat-error>
             </mat-form-field>
-            <mat-form-field>
-                <input matInput formControlName="reference" placeholder="reference">
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="customerName" required placeholder="Name">
+                <mat-error *ngIf="transactionForm.controls['customerName'].hasError('required')"> Field Required
+                </mat-error>
             </mat-form-field>
-            <mat-form-field>
-                <input matInput formControlName="reference" placeholder="reference">
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="customerAddress" required placeholder="Address">
+                <mat-error *ngIf="transactionForm.controls['customerAddress'].hasError('required')"> Field Required
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="customerPhoneNumber" required placeholder="Phone Number">
+                <mat-error *ngIf="transactionForm.controls['customerPhoneNumber'].hasError('required')"> Field Required
+                </mat-error>
+                <mat-error *ngIf="transactionForm.controls['customerPhoneNumber'].hasError('pattern')"> Number only
+                </mat-error>
             </mat-form-field>
 
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="transferAmount" required placeholder="Transfer Amount">
+                <mat-error *ngIf="transactionForm.controls['transferAmount'].hasError('required')"> Field Required
+                </mat-error>
+                <mat-error *ngIf="transactionForm.controls['transferAmount'].hasError('pattern')"> Number only
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="cssFifty" appearance="fill">
+                <mat-label>Transfer Currency</mat-label>
+                <mat-select formControlName="idCurrency" required>
+                    <mat-option *ngFor="let cur of lstCurrency" [value]="cur.id">
+                        {{cur.label}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="transactionForm.controls['idCurrency'].hasError('required')"> Field Required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="beneficiaryBank" required placeholder="Beneficiary Bank">
+                <mat-error *ngIf="transactionForm.controls['beneficiaryBank'].hasError('required')"> Field Required
+                </mat-error>
+                <mat-error *ngIf="transactionForm.controls['beneficiaryBank'].hasError('pattern')"> Letters Only
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="beneficiaryAccountNumber" required required
+                    placeholder="Beneficiary Account Number">
+                <mat-error *ngIf="transactionForm.controls['beneficiaryAccountNumber'].hasError('required')"> Field
+                    Required </mat-error>
+            </mat-form-field>
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="paymentDetails" required placeholder="Payment details">
+                <mat-error *ngIf="transactionForm.controls['paymentDetails'].hasError('required')"> Field Required
+                </mat-error>
+                <mat-error *ngIf="transactionForm.controls['paymentDetails'].hasError('pattern')"> Letters Only
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="cssFifty">
+                <input matInput formControlName="cardDetails" required placeholder="Credit/Debit Card Details">
+                <mat-error *ngIf="transactionForm.controls['cardDetails'].hasError('required')"> Field Required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="cssFifty" appearance="fill">
+                <mat-label>Region</mat-label>
+                <mat-select formControlName="idRegion" required>
+                    <mat-option *ngFor="let reg of lstRegion" [value]="reg.id">
+                        {{reg.label}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="transactionForm.controls['idRegion'].hasError('required')"> Field Required
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <button type="submit" mat-flat-button color="warn" [disabled]="!transactionForm.valid"> Submit</button>
         </fieldset>
     </form>
 

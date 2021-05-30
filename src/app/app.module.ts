@@ -18,14 +18,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BankTransactionComponent } from './bank-transaction/bank-transaction.component';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { MatSelectModule } from '@angular/material/select';
+import { ViewTransactionComponent } from './view-transaction/view-transaction.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
     NavbarComponent,
-    BankTransactionComponent
+    BankTransactionComponent,
+    ViewTransactionComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,11 @@ import { MatRadioModule } from '@angular/material/radio';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
 
   ],
   providers: [],
