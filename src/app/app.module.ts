@@ -23,6 +23,9 @@ import { ViewTransactionComponent } from './view-transaction/view-transaction.co
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MultiValueComponent } from './multi-value/multi-value.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,8 @@ import { MatSortModule } from '@angular/material/sort';
     LoginComponent,
     NavbarComponent,
     BankTransactionComponent,
-    ViewTransactionComponent
+    ViewTransactionComponent,
+    MultiValueComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule,
+    MatListModule
 
   ],
   providers: [],

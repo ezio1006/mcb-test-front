@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Currency } from '../model/currency.model';
 import { Region } from '../model/region.model';
 import { Transaction } from '../model/transaction.model';
+import { MultiValueComponent } from '../multi-value/multi-value.component';
 import { RestService } from '../rest.service';
 
 @Component({
@@ -35,7 +37,9 @@ export class BankTransactionComponent implements OnInit {
     idRegion: null,
   }
 
-  constructor(private restService: RestService) { }
+  constructor(private restService: RestService,
+    public dialogRef: MatDialogRef<MultiValueComponent>
+    ) { }
 
   ngOnInit(): void {
     this.getAllCurrency();
@@ -63,7 +67,7 @@ export class BankTransactionComponent implements OnInit {
       cardDetails: new FormControl(transaction && transaction.cardDetails ? transaction.cardDetails : null, [Validators.required]),
       idRegion: new FormControl(transaction && transaction.idRegion ? transaction.idRegion : null, [Validators.required]),
     })
-    if(this.objTransaction.type ===  "new"){
+    if (this.objTransaction.type === "new") {
       this.transactionForm.controls.type.setValue("existing");
     }
   }
@@ -131,6 +135,7 @@ export class BankTransactionComponent implements OnInit {
     console.log(this.transactionForm.value);
     this.restService.addNewTransaction(this.transactionForm.value).subscribe(res => {
       alert("New Transaction added successfully");
+      this.dialogRef.close(this.transactionForm.value);
     }, err => {
       alert("Error Adding New Transaction");
     });
