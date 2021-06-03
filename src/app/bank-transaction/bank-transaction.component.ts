@@ -62,8 +62,15 @@ export class BankTransactionComponent implements OnInit {
       cardDetails: new FormControl(transaction && transaction.cardDetails ? transaction.cardDetails : null, [Validators.required]),
       idRegion: new FormControl(transaction && transaction.idRegion ? transaction.idRegion : null, [Validators.required]),
     })
-    if(this.objTransaction.type ===  "new"){
+    if (this.objTransaction.type === "new") {
       this.transactionForm.controls.type.setValue("existing");
+    }
+    if (this.transactionForm.value.idRegion == 4) {
+      this.transactionForm.controls.customerAddress.disable();
+      this.transactionForm.controls['customerAddress'].setValidators([Validators.nullValidator]);
+      this.transactionForm.controls['customerAddress'].updateValueAndValidity({ onlySelf: true });
+      this.transactionForm.controls['customerAddress'].setValue(null);
+
     }
   }
 
@@ -92,6 +99,16 @@ export class BankTransactionComponent implements OnInit {
         for (let i = 0; i < this.lstAllTransaction.length; i++) {
           if (this.lstAllTransaction[i].customerNumber == this.transactionForm.value.customerNumber) {
             this.objTransaction = this.lstAllTransaction[i];
+
+            
+            this.objTransaction.reference = null;
+            this.objTransaction.idCurrency = null;
+            this.objTransaction.transferAmount = null;
+            this.objTransaction.beneficiaryBank = null;
+            this.objTransaction.beneficiaryAccountNumber = null;
+            this.objTransaction.paymentDetails = null;
+            this.objTransaction.cardDetails = null;
+            this.objTransaction.idRegion = null;
             this.initForm(this.objTransaction);
           }
         }
@@ -110,37 +127,30 @@ export class BankTransactionComponent implements OnInit {
     if (e.value === "existing") {
       this.restService.getExistingTransaction().subscribe(res => {
         this.lstAllTransaction = res;
-        // console.log(this.lstTransaction);
-        // res.find(e =>e.email == this.loginForm.value.email && e.password == this.loginForm.value.password)
-        // if(res.find(e=>e.customerNumber == this.transactionForm.value.customerNumber)){
-        //   this.objTransaction = res;
-        // }
-
       }, err => {
         alert("Error Fectching Existing Transaction");
       });
     } else {
-      console.log('oooppp')
       this.initForm(this.emptyTransaction);
       this.transactionForm.controls.type.setValue("new");
     }
   }
 
-  checkRegion(e):void{
-    if(e.value == 4 ){
+  checkRegion(e): void {
+    if (e.value == 4) {
       this.transactionForm.controls.customerAddress.disable();
       this.transactionForm.controls['customerAddress'].setValidators([Validators.nullValidator]);
-      this.transactionForm.controls['customerAddress'].updateValueAndValidity({onlySelf:true});
+      this.transactionForm.controls['customerAddress'].updateValueAndValidity({ onlySelf: true });
       this.transactionForm.controls['customerAddress'].setValue(null);
-      
+
     }
-  
-    if(e.value != 4  && this.transactionForm.controls.customerAddress.disabled ){
+
+    if (e.value != 4 && this.transactionForm.controls.customerAddress.disabled) {
       this.transactionForm.controls.customerAddress.enable();
-      this.transactionForm.controls['customerAddress'].setValidators([Validators.nullValidator]);
-      this.transactionForm.controls['customerAddress'].updateValueAndValidity({onlySelf:true});
+      this.transactionForm.controls['customerAddress'].setValidators([Validators.required]);
+      this.transactionForm.controls['customerAddress'].updateValueAndValidity({ onlySelf: true });
       this.transactionForm.controls['customerAddress'].setValue(null);
-      
+
     }
   }
 

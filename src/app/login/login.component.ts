@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   login(){
     if(this.loginForm.valid){
 
-      //LOGIN WITH JWT NOT WOKRING - JSON SERVER PROBLEM 
+      //LOGIN WITH WITH SESSION LOCAL STORAGE NOT WOKRING - JSON SERVER PROBLEM 
       // this.authService.login(this.formGroup.value).subscribe(res=>{
       //   console.log('her1111')  ;
       //   res = true;
@@ -43,17 +43,15 @@ export class LoginComponent implements OnInit {
       //   console.log("error")
       // })
 
+      //USED LOGIN TO CHECK IN LIST THEN MAKE AUTHGUARD TRUE
       this.restService.getUsers().subscribe(res=>{
         console.log(res);
         
         if(res.find(e =>e.email == this.loginForm.value.email && e.password == this.loginForm.value.password))
         {
           this.restService.login(true);
-          console.log('in if');
           this.route.navigateByUrl('home');
         }else{
-          console.log('not in if');
-          // this.loginForm.controls[]  
           this.loginForm.controls['password'].setValue(null);        
           alert("Invalid Login");
         }

@@ -10,6 +10,7 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) { }
  
+  //JSON SERVER LOGIN PROBLEM
   login(data):Observable<any>{
   //  console.log('server')
     return this.http.post(`${baseUrl}/login`,data);

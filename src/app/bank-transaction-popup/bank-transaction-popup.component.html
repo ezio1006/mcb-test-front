@@ -1,10 +1,9 @@
 <div class="newtransaction-container">
 
-    <h1>New Transaction</h1>
+    <h2>New Transaction</h2>
 
     <form [formGroup]="transactionForm" (ngSubmit)="addNewTransaction()">
         <fieldset class="mat-elevation-z8">
-            <!-- <legend>New Transaction</legend> -->
             <br>
             <mat-radio-group aria-label="Customer" formControlName="type" (change)="changeType($event)">
                 <mat-radio-button value="new">New</mat-radio-button>
@@ -90,7 +89,7 @@
 
             <mat-form-field class="cssFifty" appearance="fill">
                 <mat-label>Region</mat-label>
-                <mat-select formControlName="idRegion" required>
+                <mat-select formControlName="idRegion" (selectionChange)="checkRegion($event)" required>
                     <mat-option *ngFor="let reg of lstRegion" [value]="reg.id">
                         {{reg.label}}
                     </mat-option>

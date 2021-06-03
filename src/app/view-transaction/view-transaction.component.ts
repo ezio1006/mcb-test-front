@@ -32,12 +32,13 @@ export class ViewTransactionComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllCurrency();
-    this.getExistingTransaction();
+    
   }
 
   getAllCurrency(){
     this.restService.getAllCurrency().subscribe((res) => {
       this.lstCurrency = res;
+      this.getExistingTransaction();
     }, error => {
       alert("Error Retrieving All Currency")
     })
@@ -46,6 +47,9 @@ export class ViewTransactionComponent implements OnInit, AfterViewInit {
   getExistingTransaction() {
     this.restService.getExistingTransaction().subscribe(res => {
       for (let i=0;i<res.length;i++){
+
+        console.log(res[i].idCurrency);
+        console.log(this.lstCurrency);
         
         let currency = this.lstCurrency.find(e => {return e.id.toString() == res[i].idCurrency} ).label
         res[i].idCurrency = currency;

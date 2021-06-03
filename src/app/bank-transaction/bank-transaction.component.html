@@ -1,10 +1,9 @@
 <div class="newtransaction-container">
 
-    <h1>New Transaction</h1>
+    <h2>New Transaction</h2>
 
     <form [formGroup]="transactionForm" (ngSubmit)="addNewTransaction()">
         <fieldset class="mat-elevation-z8">
-            <!-- <legend>New Transaction</legend> -->
             <br>
             <mat-radio-group aria-label="Customer" formControlName="type" (change)="changeType($event)">
                 <mat-radio-button value="new">New</mat-radio-button>

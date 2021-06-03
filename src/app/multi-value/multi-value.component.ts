@@ -16,18 +16,16 @@ export class MultiValueComponent implements OnInit {
   showTable = false;
 
   lstToDisplay: String[] = [];
+  lstToDisplayStatic: String[]=[];
   ELEMENT_DATA: String[] = [];
-  // 
-  // displayedColumns: string[] = ['reference'];
 
-  // dataSource = new MatTableDataSource<String>(this.ELEMENT_DATA);
   constructor(
     public dialog: MatDialog
 
   ) { }
 
   ngOnInit(): void {
-    this.lstToDisplay.push('Cutomer Reference');
+    this.lstToDisplayStatic.push('Cutomer Reference');
   }
 
   openTransaction(): void {
@@ -51,6 +49,10 @@ export class MultiValueComponent implements OnInit {
         }
       }
     )
+  }
+
+  reset():void{
+    this.lstToDisplay = [];
   }
 
   deleteFromList(lstdelete: string): void {

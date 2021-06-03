@@ -1,5 +1,14 @@
 
 
+<mat-list style="width: 35%;">
+  <mat-list-item *ngFor="let lst of lstToDisplayStatic">
+    <h3 matLine> {{lst}} </h3>
+    <button mat-mini-fab (click)="openTransaction()">
+      <mat-icon>add</mat-icon>
+  </button>
+  </mat-list-item>
+</mat-list>
+
   <mat-list style="width: 35%;">
     <mat-list-item *ngFor="let lst of lstToDisplay">
       <h3 matLine> {{lst}} </h3>
@@ -10,4 +19,7 @@
         <mat-icon>delete</mat-icon>
     </button>
     </mat-list-item>
+
+    <button mat-raised-button color="primary" (click)="reset()">Reset</button>
   </mat-list>
+
