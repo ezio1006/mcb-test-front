@@ -48,10 +48,14 @@ export class LoginComponent implements OnInit {
         
         if(res.find(e =>e.email == this.loginForm.value.email && e.password == this.loginForm.value.password))
         {
+          this.restService.login(true);
           console.log('in if');
           this.route.navigateByUrl('home');
         }else{
           console.log('not in if');
+          // this.loginForm.controls[]  
+          this.loginForm.controls['password'].setValue(null);        
+          alert("Invalid Login");
         }
       })
 

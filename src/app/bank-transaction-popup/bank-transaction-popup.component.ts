@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Currency } from '../model/currency.model';
 import { Region } from '../model/region.model';
 import { Transaction } from '../model/transaction.model';
+import { MultiValueComponent } from '../multi-value/multi-value.component';
 import { RestService } from '../rest.service';
 
 @Component({
-  selector: 'app-bank-transaction',
-  templateUrl: './bank-transaction.component.html',
-  styleUrls: ['./bank-transaction.component.css']
+  selector: 'app-bank-transaction-popup',
+  templateUrl: './bank-transaction-popup.component.html',
+  styleUrls: ['./bank-transaction-popup.component.css']
 })
-export class BankTransactionComponent implements OnInit {
+export class BankTransactionPopupComponent implements OnInit {
 
   transactionForm: FormGroup;
 
@@ -35,7 +37,9 @@ export class BankTransactionComponent implements OnInit {
     idRegion: null,
   }
 
-  constructor(private restService: RestService) { }
+  constructor(private restService: RestService,
+    public dialogRef: MatDialogRef<MultiValueComponent>
+    ) { }
 
   ngOnInit(): void {
     this.getAllCurrency();
@@ -63,7 +67,7 @@ export class BankTransactionComponent implements OnInit {
       cardDetails: new FormControl(transaction && transaction.cardDetails ? transaction.cardDetails : null, [Validators.required]),
       idRegion: new FormControl(transaction && transaction.idRegion ? transaction.idRegion : null, [Validators.required]),
     })
-    if(this.objTransaction.type ===  "new"){
+    if (this.objTransaction.type === "new") {
       this.transactionForm.controls.type.setValue("existing");
     }
   }
@@ -127,34 +131,16 @@ export class BankTransactionComponent implements OnInit {
     }
   }
 
-  checkRegion(e):void{
-    if(e.value == 4 ){
-      this.transactionForm.controls.customerAddress.disable();
-      this.transactionForm.controls['customerAddress'].setValidators([Validators.nullValidator]);
-      this.transactionForm.controls['customerAddress'].updateValueAndValidity({onlySelf:true});
-      this.transactionForm.controls['customerAddress'].setValue(null);
-      
-    }
-  
-    if(e.value != 4  && this.transactionForm.controls.customerAddress.disabled ){
-      this.transactionForm.controls.customerAddress.enable();
-      this.transactionForm.controls['customerAddress'].setValidators([Validators.nullValidator]);
-      this.transactionForm.controls['customerAddress'].updateValueAndValidity({onlySelf:true});
-      this.transactionForm.controls['customerAddress'].setValue(null);
-      
-    }
-  }
-
-
   addNewTransaction() {
     console.log(this.transactionForm.value);
     this.restService.addNewTransaction(this.transactionForm.value).subscribe(res => {
       alert("New Transaction added successfully");
-      // this.
+      this.dialogRef.close(this.transactionForm.value);
     }, err => {
       alert("Error Adding New Transaction");
     });
 
   }
+
 
 }

@@ -1,6 +1,6 @@
 
 
-.overlay {
+/* .overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -52,4 +52,18 @@
     .popup{
       width: 70%;
     }
+  } */
+  mat-list {
+    margin-left: 35%;
+    margin-top: 5%;
+    width: 35%;
   }
+  
+  mat-list-item {
+    margin-bottom: 5%;
+  }
+  
+  button{
+    margin-left: 5%;
+  }
+  

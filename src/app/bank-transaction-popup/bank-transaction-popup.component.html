@@ -90,8 +90,8 @@
 
             <mat-form-field class="cssFifty" appearance="fill">
                 <mat-label>Region</mat-label>
-                <mat-select formControlName="idRegion" (selectionChange)="checkRegion($event)" required>
-                    <mat-option *ngFor="let reg of lstRegion"   [value]="reg.id">
+                <mat-select formControlName="idRegion" required>
+                    <mat-option *ngFor="let reg of lstRegion" [value]="reg.id">
                         {{reg.label}}
                     </mat-option>
                 </mat-select>

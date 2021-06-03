@@ -5,3 +5,9 @@
 .login-form{
     padding: 20px;
 }
+
+
+mat-toolbar {
+    justify-content: center;
+}
+

@@ -1,15 +1,11 @@
-.newtransaction-container{
-  padding-top: 3%;
-  padding-left: 15%;
-  width: 70%;
-}
-
 .mat-form-field.cssFifty{
-    width: 100%;
+    width: 48%;
     padding: 2px;
 }
 
-
+/* .mat-radio-group.cssHundred{
+    width: 100%;
+} */
 .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
   }

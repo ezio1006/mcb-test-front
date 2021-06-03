@@ -25,7 +25,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MultiValueComponent } from './multi-value/multi-value.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatListModule } from '@angular/material/list'
+import { MatListModule } from '@angular/material/list';
+import { BankTransactionPopupComponent } from './bank-transaction-popup/bank-transaction-popup.component'
+import { AuthGuard } from './auth-guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { MatListModule } from '@angular/material/list'
     NavbarComponent,
     BankTransactionComponent,
     ViewTransactionComponent,
-    MultiValueComponent
+    MultiValueComponent,
+    BankTransactionPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import { MatListModule } from '@angular/material/list'
     MatListModule
 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

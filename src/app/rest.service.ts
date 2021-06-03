@@ -16,9 +16,17 @@ export class RestService {
 
   // url: string = "http://localhost:3000/Users";
 
+  isUserLogged$:boolean=false;
+
   getUsers(){
     // return this.http.get<Users[]>(this.url);
     return this.http.get<Users[]>(`${baseUrl}/users`);
+  }
+
+  login(isLog:boolean){
+  
+    this.isUserLogged$ = isLog;
+    //return isLog;
   }
 
   getAllCurrency():Observable<Currency[]>{

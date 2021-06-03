@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
-import { BankTransactionComponent } from '../bank-transaction/bank-transaction.component';
 import { Transaction } from '../model/transaction.model';
-import {MatListModule} from '@angular/material/list'
+import { MatListModule } from '@angular/material/list'
+import { BankTransactionPopupComponent } from '../bank-transaction-popup/bank-transaction-popup.component';
 
 @Component({
   selector: 'app-multi-value',
@@ -12,13 +11,13 @@ import {MatListModule} from '@angular/material/list'
 })
 export class MultiValueComponent implements OnInit {
   popup = false
-  lstCustomerRef:String;
-  lstTransaction:Transaction;
-  showTable=false;
+  lstCustomerRef: String;
+  lstTransaction: Transaction;
+  showTable = false;
 
-  lstToDisplay:String[]=[];
+  lstToDisplay: String[] = [];
   ELEMENT_DATA: String[] = [];
-// 
+  // 
   // displayedColumns: string[] = ['reference'];
 
   // dataSource = new MatTableDataSource<String>(this.ELEMENT_DATA);
@@ -33,20 +32,20 @@ export class MultiValueComponent implements OnInit {
 
   openTransaction(): void {
     console.log('in here');
-    const dialogRef = this.dialog.open(BankTransactionComponent, {
+    const dialogRef = this.dialog.open(BankTransactionPopupComponent, {
       autoFocus: false,
       maxHeight: '80vh'
     })
     dialogRef.afterClosed().subscribe(
-      result=>{
-        if(result!=null){
+      result => {
+        if (result != null) {
           console.log(result);
           this.lstTransaction = result;
           console.log(this.lstTransaction);
-          this.showTable=true;
-          let ref:string;
+          this.showTable = true;
+          let ref: string;
           ref = this.lstTransaction.reference;
-          console.log('ref' + ref );
+          console.log('ref' + ref);
           this.lstToDisplay.push(ref);
           console.log(this.lstToDisplay);
         }
@@ -54,5 +53,12 @@ export class MultiValueComponent implements OnInit {
     )
   }
 
+  deleteFromList(lstdelete: string): void {
+    const index = this.lstToDisplay.indexOf(lstdelete, 0);
+    if (index > -1) {
+      this.lstToDisplay.splice(index, 1);
+    }
+    console.log(this.lstToDisplay);
+  }
 
 }
