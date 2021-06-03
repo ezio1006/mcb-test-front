@@ -62,22 +62,7 @@
     }
   ],
   "transaction": [
-    {
-      "type": "new",
-      "reference": "asdf",
-      "idCurrency": "5",
-      "customerNumber": "12",
-      "customerName": "asf",
-      "customerAddress": "asdf",
-      "customerPhoneNumber": "12",
-      "transferAmount": "12",
-      "beneficiaryBank": "sdaf",
-      "beneficiaryAccountNumber": "asdf",
-      "paymentDetails": "asdf",
-      "cardDetails": "asdf",
-      "idRegion": "3",
-      "id": 1
-    },
+
     {
       "type": "new",
       "reference": "CUS202012100001",
