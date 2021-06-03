@@ -44,13 +44,12 @@ export class BankTransactionComponent implements OnInit {
   }
 
 
-
   initForm(transaction: Transaction) {
     this.objTransaction = transaction;
     console.log(transaction.type);
     this.transactionForm = new FormGroup({
       type: new FormControl(transaction && transaction.type ? transaction.type : null, [Validators.required]),
-      reference: new FormControl(transaction && transaction.reference ? transaction.reference : null, [Validators.required]),
+      reference: new FormControl(transaction && transaction.reference ? transaction.reference : null, [Validators.required, Validators.pattern('^CUS((19|2[0-9])[0-9]{2})(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])([0-9]{4})$')]),
       idCurrency: new FormControl(transaction && transaction.idCurrency ? transaction.idCurrency : null, [Validators.required]),
       customerNumber: new FormControl(transaction && transaction.customerNumber ? transaction.customerNumber : null, [Validators.required]),
       customerName: new FormControl(transaction && transaction.customerName ? transaction.customerName : null, [Validators.required]),
