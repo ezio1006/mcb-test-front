@@ -80,19 +80,35 @@
     },
     {
       "type": "new",
-      "reference": "asdf",
-      "idCurrency": "5",
-      "customerNumber": "12",
-      "customerName": "asf",
-      "customerAddress": "asdf",
-      "customerPhoneNumber": "12",
-      "transferAmount": "12",
-      "beneficiaryBank": "sdaf",
-      "beneficiaryAccountNumber": "asdf",
-      "paymentDetails": "asdf",
-      "cardDetails": "asdf",
-      "idRegion": "3",
-      "id": 1
+      "reference": "CUS202012100001",
+      "idCurrency": "4",
+      "customerNumber": "189",
+      "customerName": "Test Name",
+      "customerAddress": "Test Address",
+      "customerPhoneNumber": "51234565",
+      "transferAmount": "125000",
+      "beneficiaryBank": "Test Bank",
+      "beneficiaryAccountNumber": "000123456789",
+      "paymentDetails": "Test Payment",
+      "cardDetails": "123456",
+      "idRegion": "2",
+      "id": 2
+    },
+    {
+      "type": "existing",
+      "reference": "CUS202110110023",
+      "idCurrency": "2",
+      "customerNumber": "189",
+      "customerName": "Test Name 2",
+      "customerAddress": "Test Address 2",
+      "customerPhoneNumber": "51234222",
+      "transferAmount": "32000",
+      "beneficiaryBank": "Test Bank A",
+      "beneficiaryAccountNumber": "23984",
+      "paymentDetails": "Test Payment A",
+      "cardDetails": "456325",
+      "idRegion": "1",
+      "id": 3
     }
   ]
 }
